@@ -14,7 +14,6 @@ def main_page():
     global_init('db/task.db')
     db_sess = create_session()
     jobs = db_sess.query(Jobs).all()
-    team_leaders_objects = [db_sess.query(User).filter(User.id == job.team_leader).first() for job in jobs]
     return render_template('prof.html', jobs=jobs)
 
 
